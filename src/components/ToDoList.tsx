@@ -1,10 +1,12 @@
 import React from 'react';
 
+export interface TodoItem {
+  id: string,
+  text: string,
+}
+
 interface ToDoListProps {
-  items: {
-    id: string,
-    text: string,
-  }[];
+  items: TodoItem[];
 }
 
 const ToDoList: React.FC<ToDoListProps> = (props) => {
