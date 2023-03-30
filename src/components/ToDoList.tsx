@@ -7,11 +7,17 @@ export interface TodoItem {
 
 interface ToDoListProps {
   items: TodoItem[];
+  onAddDelete: (todoId: string) => void;
 }
 
 const ToDoList: React.FC<ToDoListProps> = (props) => {
   return <ul>
-    {props.items.map((todo) => <li key={todo.id}>{todo.text}</li>)}
+    {props.items.map((todo) => (
+      <li key={todo.id}>
+        <span>{todo.text}</span>
+        <button onClick={props.onAddDelete.bind(null, todo.id)}>Delete</button>
+      </li>
+    ))}
   </ul>;
 }
 
